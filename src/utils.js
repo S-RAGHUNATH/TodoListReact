@@ -1,9 +1,14 @@
-import Dexie from 'dexie';
- //Dexie - a library to use indexedDB - the client-side database in browsers
+import Dexie from 'dexie'; // npm install dexie reqd
+  //Dexie - a wrapper library for IndexedDB, making it easier to perform database operations in web applications. 
+ // IndexDB - IndexedDB is a powerful API for client-side data storage that allows you to create structured data stores and perform asynchronous operations, making it suitable for offline applications and more complex data handling.
+ 
+ // create a new database named 'todo-list-db'
 export const db = new Dexie('todo-list-db');
+
+//define the schema
 db.version(2).stores({
-  lists: '++id, name', // Primary key and indexed props
-  listItems: '++id, name, checked, listId', // Primary key and indexed props
+  lists: '++id, name', // id is auto-incremented, name is indexed
+  listItems: '++id, name, checked, listId', // id is auto-incremented, name, checked, listId are indexed
 });
 
 export const APIs = {
@@ -17,7 +22,7 @@ export const APIs = {
 export async function fetcher({ url, ...variables }) {
   switch (url) {
     case APIs.TodoLists:
-      return db.lists.toArray();
+      return db.lists.toArray(); //Fetching data
     case APIs.TodoList:
       return {
         ...(await db.lists.get(variables.id)),
