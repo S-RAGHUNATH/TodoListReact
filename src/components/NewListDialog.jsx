@@ -22,7 +22,7 @@ export function NewListDialog({ dialogState }) {
   const [icon, setIcon] = useState('');
   const { newList } = useTodoLists();
 
-  //returns an array whose elements are arrays corresponding to the enumerable string-keyed property key-value pairs found directly upon object 
+  //Object.entries() - returns an array of a given object's own enumerable string-keyed property pairs.
   const [filteredIcons, setFilteredIcons] = useState(Object.entries(Icons)); //all these icons are material UI icons
 
   useEffect(() => {
