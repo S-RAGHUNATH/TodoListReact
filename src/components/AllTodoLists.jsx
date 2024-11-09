@@ -1,6 +1,6 @@
 import * as Icons from '@mui/icons-material';
 import {
-  Drawer,
+  Drawer, //it contains all todo list headings
   List,
   ListItem,
   ListItemButton,
