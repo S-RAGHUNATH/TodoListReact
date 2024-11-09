@@ -1,12 +1,13 @@
 import { createContext, useContext, useMemo, useState } from 'react';
 
-const AppStateContext = createContext({
+const AppStateContext = createContext({  //creating context - must step
   currentList: null,
 });
 export function AppState({ children }) {
   const [currentList, setCurrentList] = useState(null);
 
-  const value = useMemo(
+  const value = useMemo( /useMemo is a hook that returns a memoized value. Optimizes calculations or values within a component. 
+                         // Memoized - To store (the result of a computation) so that it can be subsequently retrieved without repeating the computation.
     () => ({
       currentList,
       setCurrentList,
